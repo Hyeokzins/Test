@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Real-time Web 안녕</title>
+    </head>
+    <body>
+        <h1>Real-time Updates 안녕</h1>
+        <div id="messages"></div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+        <script>
+            var socket = io.connect('http://' + document.domain + ':' + location.port);
+            socket.on('message', function(msg) {
+                var node = document.createElement("p");  
+                var textnode = document.createTextNode(msg.data); 
+                node.appendChild(textnode);
+                document.getElementById('messages').appendChild(node);
+            });
+        </script>
+        <h1>명입니다</h1>
+        
+    </body>
+</html>
